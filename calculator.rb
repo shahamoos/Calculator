@@ -6,17 +6,17 @@ def calculator(str)
   else
     numbers = str.split(/[\n,]/)
   end
-  numbers = numbers.map { |n| n.strip.to_i }
-  negatives = negative_numbers(numbers)
-  unless negatives.present?
-    find_sum(numbers)
-  else
-    return "Negative Numbers not allowed #{negatives.join(",")}"
-  end
+  find_sum(numbers)
 end
 
 def find_sum(numbers)
-  sum = numbers&.sum
+  numbers = numbers.map { |n| n.strip.to_i }
+  negatives = negative_numbers(numbers)
+  unless negatives.present?
+    sum = numbers&.sum
+  else
+    return "Negative Numbers not allowed #{negatives.join(",")}"
+  end
 end
 
 def negative_numbers(numbers)
