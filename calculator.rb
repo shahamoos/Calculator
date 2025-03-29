@@ -10,7 +10,7 @@ def calculator(str)
   unless numbers.any? { |n| n < 0 }
     find_sum(numbers)
   else
-    puts "Negative Numbers not allowed"
+    return "Negative Numbers not allowed"
   end
 end
 
