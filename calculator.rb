@@ -7,13 +7,18 @@ def calculator(str)
     numbers = str.split(/[\n,]/)
   end
   numbers = numbers.map { |n| n.strip.to_i }
-  unless numbers.any? { |n| n < 0 }
+  negatives = negative_numbers(numbers)
+  unless negatives.present?
     find_sum(numbers)
   else
-    return "Negative Numbers not allowed"
+    return "Negative Numbers not allowed #{negatives.join(",")}"
   end
 end
 
 def find_sum(numbers)
   sum = numbers&.sum
+end
+
+def negative_numbers(numbers)
+  numbers.select { |n| n < 0 }
 end
