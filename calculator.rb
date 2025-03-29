@@ -6,7 +6,10 @@ def calculator(str)
   else
     numbers = str.split(/[\n,]/)
   end
-  find_sum(numbers)
+  numbers = numbers.map { |n| n.strip.to_i }
+  unless numbers.any? { |n| n < 0 }
+    find_sum(numbers)
+  end
 end
 
 def find_sum(numbers)
