@@ -9,13 +9,11 @@ def calculator(str)
   numbers = numbers.map { |n| n.strip.to_i }
   unless numbers.any? { |n| n < 0 }
     find_sum(numbers)
+  else
+    puts "Negative Numbers not allowed"
   end
 end
 
 def find_sum(numbers)
-  sum = 0
-  numbers&.each do |num|
-    sum += num.strip.to_i
-  end
-  sum
+  sum = numbers&.sum
 end
