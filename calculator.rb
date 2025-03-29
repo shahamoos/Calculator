@@ -6,9 +6,13 @@ def calculator(str)
   else
     numbers = str.split(/[\n,]/)
   end
+  find_sum(numbers)
+end
+
+def find_sum(numbers)
   sum = 0
-  #numbers.each do |n|
-    #sum+=n.to_i
-  #end
+  numbers&.each do |num|
+    sum += num.strip.to_i
+  end
   sum
 end
